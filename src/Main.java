@@ -14,8 +14,8 @@ public class Main {
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
     public static final String QUIT           = "Q";
-
     public static final String  EXISTS_PHONE = "EP";
+    public static final String LOOKUP_CONTACT = "GN";
 
     //Constantes que definem as mensagens para o utilizador
     public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
@@ -59,6 +59,10 @@ public class Main {
                     break;
                 case EXISTS_PHONE:
                     checkRepeated(cBook);
+                    break;
+                case LOOKUP_CONTACT:
+                    lookupContact(in, cBook);
+                    break;
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -158,5 +162,14 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+
+    private static void lookupContact(Scanner in, ContactBook cBook) {
+        int phone;
+        phone = in.nextInt();
+        Contact owner = cBook.lookupContact(phone);
+        if(owner != null) {
+
+        }
     }
 }

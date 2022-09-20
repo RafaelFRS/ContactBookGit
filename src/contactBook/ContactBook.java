@@ -101,4 +101,14 @@ public class ContactBook {
         }
         return false;
     }
+
+    public Contact lookupContact(int phone) {
+        Contact owner = null;
+        for (Contact contact : contacts) {
+            if (contact.getPhone() == phone) {
+                owner = contact;
+            }
+        }
+        return owner;
+    }
 }
