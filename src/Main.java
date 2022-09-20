@@ -26,7 +26,9 @@ public class Main {
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String EP_TRUE = "There are contacts that share phone numbers.";
-    public static final String EP_FALSE = "All contacts have different phone numbers";
+    public static final String EP_FALSE = "All contacts have different phone numbers.";
+
+    public static final String PHONE_NOT_EXIST = "Phone number does not exist.";
     public static final String COMMAND_ERROR = "Unknown command.";
 
     public static void main(String[] args) {
@@ -166,10 +168,12 @@ public class Main {
 
     private static void lookupContact(Scanner in, ContactBook cBook) {
         int phone;
-        phone = in.nextInt();
+        phone = in.nextInt();in.nextLine();
         Contact owner = cBook.lookupContact(phone);
         if(owner != null) {
-
+            System.out.println(owner.getName());
+        } else {
+            System.out.println(PHONE_NOT_EXIST);
         }
     }
 }

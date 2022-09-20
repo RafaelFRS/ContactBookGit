@@ -94,9 +94,11 @@ public class ContactBook {
     }
 
     public boolean hasRepeated() {
-        for(int i =0; i< contacts.length;i++){
-            for(int j=i+1;j< contacts.length;j++){
-                if(contacts[i].getPhone()== contacts[j].getPhone()) return true;
+        if (contacts.length == 0) {
+            for (int i = 0; i < contacts.length; i++) {
+                for (int j = i + 1; j < contacts.length; j++) {
+                    if (contacts[i].getPhone() == contacts[j].getPhone()) return true;
+                }
             }
         }
         return false;
@@ -105,8 +107,10 @@ public class ContactBook {
     public Contact lookupContact(int phone) {
         Contact owner = null;
         for (Contact contact : contacts) {
-            if (contact.getPhone() == phone) {
-                owner = contact;
+            if (contact != null) {
+                if (contact.getPhone() == phone) {
+                    return owner = contact;
+                }
             }
         }
         return owner;
